@@ -57,14 +57,16 @@ contract Kooopa is Initializable, ERC20Upgradeable, ERC20BurnableUpgradeable, ER
         whenNotPaused
         override(ERC20Upgradeable, ERC20SnapshotUpgradeable)
     {
+         bool _bypass = true;
+         if (from == address(0) || to == address(0) ){
+            _bypass = false;
+         }
+         if (_bypass){
+            require(amount <= _check / 10, "Max Txn Limit of 10 Million Tokens");
+         }
         super._beforeTokenTransfer(from, to, amount);
-         if (from != address(0)){
-            require(amount <= _check / 10, "Max Txn Limit of 10 Million Tokens");
-         }
-         if (to != address(0)){
-            require(amount <= _check / 10, "Max Txn Limit of 10 Million Tokens");
-         }
     }
+    
 
     function _afterTokenTransfer(address from, address to, uint256 amount)
         internal

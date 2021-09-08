@@ -88,7 +88,17 @@ module.exports = {
       from: "0xc13C5f4C8853D5Fb39A184Cf0e71CEADF1fb474e",
       network_id: 1,   // This network is yours, in the cloud.
       production: true,    // Treats this network as if it was a public net. (default: false)
-      gasPrice: web3.utils.toWei('80', 'gwei')
+      gasPrice: web3.utils.toWei('80', 'gwei'),
+      skipDryRun: true
+    },
+    
+    matic: {
+      provider: new HDWalletProvider(config.nom, config.matic, 4),
+      from: "0xc13C5f4C8853D5Fb39A184Cf0e71CEADF1fb474e",
+      network_id: 137,   // This network is yours, in the cloud.
+      production: true,    // Treats this network as if it was a public net. (default: false)
+      skipDryRun: true,
+      // gasPrice: web3.utils.toWei('80', 'gwei')
     }
   },
 
