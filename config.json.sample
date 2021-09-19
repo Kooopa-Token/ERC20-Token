@@ -1,0 +1,6 @@
+{
+    "nom": "",
+    "main": "https://mainnet.infura.io/v3/<ID>>",
+    "matic": "https://polygon-mainnet.infura.io/v3/<ID>>",
+    "rosp": "https://ropsten.infura.io/v3/<ID>>"
+}

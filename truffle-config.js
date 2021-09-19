@@ -24,12 +24,8 @@
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 config = require('./config.json');
-const HDWalletProvider = require("@truffle/hdwallet-provider");
-let { ethers } = require('ethers');
 let web3 = require('web3')
-
-let _infura = new ethers.providers.JsonRpcProvider(config.main);
-let _wallet = new ethers.Wallet(config.key, _infura);
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
   /**
@@ -84,8 +80,8 @@ module.exports = {
     },
     
     live: {
-      provider: new HDWalletProvider(config.nom, config.main, 4),
-      from: "0xc13C5f4C8853D5Fb39A184Cf0e71CEADF1fb474e",
+      provider: new HDWalletProvider(config.nom, config.main),
+      from: "wallet address",
       network_id: 1,   // This network is yours, in the cloud.
       production: true,    // Treats this network as if it was a public net. (default: false)
       gasPrice: web3.utils.toWei('80', 'gwei'),
@@ -93,8 +89,8 @@ module.exports = {
     },
     
     matic: {
-      provider: new HDWalletProvider(config.nom, config.matic, 4),
-      from: "0xc13C5f4C8853D5Fb39A184Cf0e71CEADF1fb474e",
+      provider: new HDWalletProvider(config.nom, config.matic),
+      // from: "0xc13C5f4C8853D5Fb39A184Cf0e71CEADF1fb474e",
       network_id: 137,   // This network is yours, in the cloud.
       production: true,    // Treats this network as if it was a public net. (default: false)
       skipDryRun: true,
