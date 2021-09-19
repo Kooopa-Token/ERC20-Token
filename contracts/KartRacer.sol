@@ -25,7 +25,7 @@ contract KartRacer is
     uint256 public maxSupply; // max Supply
     uint256 internal _10Mil; // 1% of max supply
     uint256 internal _100Mil; // 1% of max supply
-    address internal _safe = 0xd8806d66E24b702e0A56fb972b75D24CAd656821;
+    address internal _safe;// = 0xd8806d66E24b702e0A56fb972b75D24CAd656821;
     mapping(string => bytes32) internal Roles;
 
     bytes32 public constant CEO = keccak256("CEO");
@@ -36,6 +36,7 @@ contract KartRacer is
         maxSupply = 10000000000 * 10**decimals(); // 10 Billion Tokens ^ 18 decimals
         _100Mil = maxSupply / 100;
         _10Mil = maxSupply / 1000;
+        _safe = 0xd8806d66E24b702e0A56fb972b75D24CAd656821;
 
         __ERC20_init("Kart Racing League", "KRT");
         __ERC20Burnable_init();
